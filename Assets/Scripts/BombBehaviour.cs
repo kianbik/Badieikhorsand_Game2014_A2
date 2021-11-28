@@ -6,6 +6,7 @@ public class BombBehaviour : MonoBehaviour
 {
     float timeLeft = 3.0f;
     private Animator animatorController;
+    public float explosionRadius;
     void Start()
     {
        
