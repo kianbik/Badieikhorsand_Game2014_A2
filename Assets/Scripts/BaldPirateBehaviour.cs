@@ -14,6 +14,9 @@ public class BaldPirateBehaviour : MonoBehaviour
 
     private Rigidbody2D rigidbody;
 
+    [SerializeField]
+    private AudioSource musicSrc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,23 +51,30 @@ public class BaldPirateBehaviour : MonoBehaviour
             Lastmovespeed = movespeed;
             movespeed = 0;
             animatorController.SetTrigger("Attack");
-           
+            if (!musicSrc.isPlaying)
+                musicSrc.Play();
+
+        }
+        else
+        {
+            if (musicSrc.isPlaying)
+                musicSrc.Stop();
         }
 
-    }
+    
+
+}
     private void OnCollisionExit2D(Collision2D other)
     {
-        
+
         if (other.gameObject.tag == "Player")
         {
-            
+
             animatorController.SetTrigger("Run");
             movespeed = Lastmovespeed;
 
             Flip();
 
         }
-
     }
-
 }

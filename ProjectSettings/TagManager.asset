@@ -9,6 +9,7 @@ TagManager:
   - Bomb
   - Platform
   - Wall
+  - Door2
   layers:
   - Default
   - TransparentFX
